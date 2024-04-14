@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@react-navigation/native-stack": "^6.9.26",
     "expo-cli": "^6.3.10"
   }
 }

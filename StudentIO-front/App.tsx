@@ -1,23 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
+import LoginScreen from './screens/Login-screen';
+import Register from './Components/register';
+import Login from './Components/sign-in';
+import HomeScreen from './Components/home-screen';
+import MyStack from './Navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
 
   const [title, setTitle] = useState('StudentIO');
+  const [selected, setSelected] = useState('None');
 
 
-  const onImageClick = () => {
-    setTitle("Hello");
+
+
+  const onRegisterClick = () => {
+    setSelected('Register');
   }
+
+  const onLogInClick = () => {
+    setSelected('Log In');
+  }
+
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={onImageClick}>
-        <Image source={require('./assets/images/STUDENTIO_ICON.png')} style={styles.image} />
-      </TouchableOpacity>
-      <Text style={styles.title}>{title}</Text>
-      <StatusBar style="dark" />
-    </View>
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
   );
 }
 
